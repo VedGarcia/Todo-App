@@ -4,6 +4,7 @@ import { TodoCounter } from "./components/TodoCounter";
 import { TodoSearch } from "./components/TodoSearch";
 import { TodoList } from "./components/TodoList";
 import { TodoItem } from "./components/TodoItem";
+import { CreateTodoButton } from "./components/CreateTodoButton";
 
 const todos = [
   { text: "Cortar cabello", complete: false },
@@ -16,15 +17,15 @@ function App() {
   return (
     <>
       <h1>ToDo App</h1>
-      <TodoCounter />
+      <TodoCounter completed={1} total={todos.length} />
       <TodoSearch />
+
       <TodoList>
-        {
-          todos.map(todo=>(
-            <TodoItem />
-          ))
-        }
+        {todos.map(todo => (
+          <TodoItem key={todo.text} text={todo.text} complete={todo.complete} />
+        ))}
       </TodoList>
+      <CreateTodoButton />
     </>
   );
 }
