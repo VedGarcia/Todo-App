@@ -1,13 +1,13 @@
 import React from "react";
-// import './TodoList.css';
+import './TodoList.css';
 
 function TodoList({children}){
     return(
-        <section>
-        <ul>
+        <>
+        <ul className="TodoList">
             {children}
         </ul>
-        </section>
+        </>
     )
 }
 export {TodoList};
