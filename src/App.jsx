@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { TodoCounter } from "./components/TodoCounter";
 import { TodoSearch } from "./components/TodoSearch";
 import { TodoList } from "./components/TodoList";
@@ -17,30 +16,47 @@ const dTodos = [
 function App() {
   const [toDos, setToDos] = React.useState(dTodos);
   const [searchValue, setSearchValue] = React.useState("");
+  // para indicar cuantos  ToDos se han completado y mostrarlo en el TodoCounter
+  const completeToDo = toDos.filter(toDo => !!toDo.complete).length;
   
-
-  let completeToDo = toDos.filter(toDo => !!toDo.complete).length;
-
-  let searchedToDo = toDos.filter(toDo => {
+  // para buscar TodoItem
+  const searchedToDo = toDos.filter(toDo => {
     return toDo.text.toLowerCase().includes(searchValue.toLowerCase())
   })
 
-  console.log("Los usuarios buscan ToDos de " + searchValue);
+  const checkToDo = (text) => { // = completeTodo en explicacion
+    const newToDos = [...toDos];
+    const toDoIndex = newToDos.findIndex((toDo) => toDo.text == text);
+
+    newToDos[toDoIndex].complete = !newToDos[toDoIndex].complete;
+    setToDos(newToDos)
+  };
+  const deleteToDo = (text) => {
+    const newToDos = [...toDos];
+    const toDoIndex = newToDos.findIndex((toDo) => toDo.text == text);
+    newToDos.splice(toDoIndex, 1);
+    setToDos(newToDos);
+  };
+
   return (
     <>
       <h1>ToDo App</h1>
-      <TodoCounter completed={completeToDo} total={toDos.length} />
+      <TodoCounter 
+        completed={completeToDo} 
+        total={toDos.length} />
       <TodoSearch 
-      searchValue={searchValue}
-      setSearchValue={setSearchValue}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
       />
 
       <TodoList>
         {searchedToDo.map((todo) => (
           <TodoItem 
-          key={todo.text+Date()} 
+          key={todo.text} 
           text={todo.text} 
-          complete={todo.complete} />
+          complete={todo.complete}
+          onComplete={() => checkToDo(todo.text)}
+          onDelete={()=>deleteToDo(todo.text)} />
         ))}
       </TodoList>
       <CreateTodoButton />
