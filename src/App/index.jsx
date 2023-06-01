@@ -15,7 +15,12 @@ import { AppUI } from "./AppUI";
 
 
 function App() {
-  const [toDos, saveToDos] = useLocalStorage('TODO_V1', []);
+  const {
+    item: toDos, 
+    saveItem: saveToDos, 
+    loading, 
+    error
+  } = useLocalStorage('TODO_V1', []);
   const [searchValue, setSearchValue] = React.useState("");
 
   // para indicar cuantos  ToDos se han completado y mostrarlo en el TodoCounter
@@ -50,6 +55,8 @@ function App() {
     searchedToDo={searchedToDo}
     checkToDo={checkToDo}
     deleteToDo={deleteToDo}
+    loading={loading}
+    error={error}
     />
   
   )
