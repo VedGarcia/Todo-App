@@ -1,9 +1,9 @@
 import React from "react";
 import "./EmptyTodo.css"
 
-function EmptyTodo() {
+function EmptyTodo({ message }) {
     return(
-        <p className="EmptyTodo">Ingresa tu primer ToDo!</p>
+        <p className="EmptyTodo">{message}</p>
     )
 }
 

@@ -9,10 +9,12 @@ import { TodoError } from "../components/TodoError";
 import { CreateTodoButton } from "../components/CreateTodoButton";
 import { Modal } from "../components/Modal";
 import { TodoForm } from "../components/TodoForm";
+import { Title } from "../components/Title";
 import { TodoContext } from "../components/TodoContext";
 
 function AppUI(){
     const {
+      toDos,
       searchedToDo,
       deleteToDo,
       checkToDo,
@@ -23,14 +25,14 @@ function AppUI(){
    } = React.useContext(TodoContext);
     return (
     <>
-      <h1>ToDo App</h1>
+      <Title />
       <TodoCounter />
       <TodoSearch />
 
           <TodoList>
           {loading && <TodoLoading />}
           {error && <TodoError />}
-          {(!loading && searchedToDo.length == 0) && <EmptyTodo />}
+          {(!loading && toDos.length == 0) && <EmptyTodo message={"¡Ingresa tu primer ToDo!"}/>}
           {searchedToDo.map((todo) => (
             <TodoItem
               key={todo.text}
@@ -39,7 +41,9 @@ function AppUI(){
               onComplete={() => checkToDo(todo.text)}
               onDelete={() => deleteToDo(todo.text)}
             />
-          ))}
+          )) 
+          }
+          {(searchedToDo.length === 0 && toDos.length > 0) && <EmptyTodo message={"No hay resultados para la busqueda"}/>}
         </TodoList>
       <CreateTodoButton
         setOpenModal={setOpenModal}
@@ -52,6 +56,6 @@ function AppUI(){
       )}
     </>
   );
-}
+} 
 
 export { AppUI };
