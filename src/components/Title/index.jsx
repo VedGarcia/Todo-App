@@ -1,8 +1,5 @@
-import React from "react";
-import "./Title.css";
-
 function Title() {
-  return(<h1 className="Title">ToDo App</h1>) ;
+  return(<h1 className="text-8xl text-orange-600 font-light">ToDo App</h1>) ;
 }
 
 export { Title };

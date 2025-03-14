@@ -1,5 +1,4 @@
-import React from "react";
-import "./EmptyTodo.css"
+
 
 function EmptyTodo({ message }) {
     return(
