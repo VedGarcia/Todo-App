@@ -1,4 +1,3 @@
-
 function CreateTodoButton({ setOpenModal }){
     return(
         <button 
