@@ -1,4 +1,4 @@
-# Todo App
+# Lista de tareas
 
 Aplicación de lista de tareas (ToDo) creada con React y Vite. Permite crear, completar, buscar y eliminar tareas. Los datos se persisten en el almacenamiento local del navegador.
 
@@ -7,7 +7,6 @@ Aplicación de lista de tareas (ToDo) creada con React y Vite. Permite crear, co
 - Proveedor de estado y persistencia: [`TodoProvider`](src/components/TodoContext/index.jsx) en [src/components/TodoContext/index.jsx](src/components/TodoContext/index.jsx) que usa [`useLocalStorage`](src/components/TodoContext/useLocalStorage.js) en [src/components/TodoContext/useLocalStorage.js](src/components/TodoContext/useLocalStorage.js)
 - Componentes relevantes: [`CreateTodoButton`](src/components/CreateTodoButton/index.jsx) ([src/components/CreateTodoButton/index.jsx](src/components/CreateTodoButton/index.jsx)) y [`TodoForm`](src/components/TodoForm/index.jsx) ([src/components/TodoForm/index.jsx](src/components/TodoForm/index.jsx))
 - Configuración de Vite: [vite.config.js](vite.config.js)
-- Documento HTML: [index.html](index.html)
 
 Características principales
 
