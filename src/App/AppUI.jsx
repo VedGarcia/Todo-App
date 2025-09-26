@@ -32,7 +32,7 @@ function AppUI(){
           <TodoList>
           {loading && <TodoLoading />}
           {error && <TodoError />}
-          {(!loading && toDos.length == 0) && <EmptyTodo message={"¡Ingresa tu primer ToDo!"}/>}
+          {(!loading && toDos.length == 0) && <EmptyTodo message={"¡Ingresa tu primer tarea!"}/>}
           {searchedToDo.map((todo) => (
             <TodoItem
               key={todo.text}

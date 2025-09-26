@@ -6,8 +6,8 @@ form {
   width: 90%;
   max-width: 400px;
   height: 60%;
-  background-color: #61f9f9;
-  color: #303535;
+  background-color: #6363d3f1;
+  color: #83daf0;
   border-radius: 0.5em;
 }
 label {
@@ -38,6 +38,7 @@ textarea::placeholder {
   align-items: center;
   justify-content: center;
   margin: 1em;
+  gap: 1em;
   width: 80%;
 }
 .TodoForm-button {
@@ -50,10 +51,15 @@ textarea::placeholder {
   border-radius: 0.5em;
 }
 .TodoForm-button--add{
-  background-color: #0d7171;
+  background-color: #119ed6f1;
   color: #f0f8ff;
-  box-shadow: 0 0 25px #026262a9;
+  box-shadow: 0 0 20px #026262a9;
 }
 .TodoForm-button--close{
     background: transparent;
+    color: #ffffff;
+
+}
+.TodoForm-button--close:hover{
+    box-shadow: inset #119ed6f1 0 0 10px;
 }
